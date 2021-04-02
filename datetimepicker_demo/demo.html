@@ -1,0 +1,375 @@
+<meta charset="utf-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<link rel="stylesheet" href="./jquery.datetimepicker.css"/>
+<script src="jquery.datetimepicker.js"></script>
+<script src="php-date-formatter.min.js"></script>
+<script src="jquery.mousewheel.js"></script>
+<!-- <script src="bower_components/php-date-formatter/js/php-date-formatter.min.js"></script> -->
+<!-- <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
+
+
+
+
+
+<input type="text" id="datetimepicker"/>
+
+
+<br><br>
+<script>
+//-----------API----   https://xdsoft.net/jqplugins/datetimepicker/
+
+$.datetimepicker.setLocale('ko');//ko,kr 한국어, zh중국어, en영어, ja일어
+$('#datetimepicker').datetimepicker({
+    // lazyInit: true, //false  //Initializing plugin occurs only when the user interacts. Greatly accelerates plugin work with a large number of fields
+    // parentId: '#datetimepicker', //'body'  //Attach datetimepicker to this element, which can be either a selector or a DOM/JQuery element
+    
+    // inline: true, //fasle
+    // lang: 'ko', //en //안됨!!
+    // dayOfWeekStart : 1, //0은 월요일을 첫시작으로 한다.
+    step: 30, //default: 60
+    // closeOnDateSelect:true, //0
+    // validateOnBlur:false, //true
+    // closeOnWithoutClick :false, //true //Verify datetime value from input, when losing focus. If value is not valid datetime, then to value inserts the current datetime
+    // datepicker:false, //true //날짜 감춤 (년/월/일 부분) 
+    // timepicker:false, //true //시간 감춤 (시:분 부분)
+    // weeks:true, //false, //Show week number
+    // theme:'dark', //'default' //Setting a color scheme. Now only supported default and dark theme
+
+
+    // value:'1111-11-11', //null //Current value datetimepicker. If it is set, ignored input.value
+    // startDate:'+1971/05/01', //or 1986/12/08
+    // startDate:	'1986/01/05'
+    // disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+
+    format:'Y-m-d H:i', //Y/m/d H:i //출력 격식 (시:분) //{format:'unixtime'}
+    formatDate: 'Y-m-d', //Y/m/d  //Format date for minDate and maxDate
+    formatTime: 'H:i', //H:i  //Similarly, formatDate . But for minTime and maxTime
+
+    //------date
+    // defaultDate:'1987/12/03', //false
+    // defaultDate:new Date(),
+    // defaultDate:'+1970/01/02', // tomorrow
+    // defaultDate:'08.12.1986',formatDate:'d.m.Y',
+
+    // minDate:0, //false // today
+    // minDate:'2013/12/03',
+    // minDate:'-1970/01/02', // yesterday
+    // minDate:'05.12.2013',formatDate:'d.m.Y',
+
+    // maxDate:'2013/12/03',//false
+    // maxDate:'+1970/01/02', // tomorrow
+    // maxDate:'05.12.2013',formatDate:'d.m.Y',
+
+    // startDate:'1987/12/03',//false
+    // startDate:new Date(),
+    // startDate:'+1970/01/02', // tomorrow
+    // startDate:'08.12.1986',formatDate:'d.m.Y',
+
+    //--time
+    // defaultTime:'05:00',//false 
+    // defaultTime:'33-12',formatTime:'i-H',
+
+    // minTime:0,//false // now
+    // minTime:new Date(),
+    // minTime:'12:00',
+    // minTime:'13:45:34',formatTime:'H:i:s',
+
+    // maxTime:0, //false
+    // maxTime:'12:00',
+    // maxTime:'13:45:34',formatTime:'H:i:s',
+
+    // allowTimes:[ '09:00', '11:00', '12:00', '21:00' ], //[]
+
+    //-------
+    mask:'9999-19-39 29:59',format:'Y-m-d H:i',
+    // mask:true,format:'Y/m/d', // automatically generate a mask 9999/99/99
+    // mask:'29:59',format:'H:i', //
+    // mask:true,format:'H:i', //automatically generate a mask 99:99
+
+    // opened: true, //false
+    // yearOffset: 0, //0  //Year offset for Buddhist era
+    // todayButton: false, //true  //Show button "Go To Today"
+    // defaultSelect: false, //true  //Highlight the current date even if the input is empty
+    // allowBlank: true, //false //Allow field to be empty even with the option validateOnBlur in true
+    // timepickerScrollbar: false, //true 
+
+    //----------event
+    // onSelectDate: function(ct,$i){
+    //     alert(ct.dateFormat('d/m/Y'))
+    // },
+    // onSelectTime: function(current_time,$input){},
+    // onChangeMonth: function(current_time,$input){},
+    // onChangeYear: function(current_time,$input){},		
+    // onChangeDateTime: function(current_time,$input){},		
+    // onShow: function(current_time,$input){},		
+    // onClose: function(ct,$i){
+    //     $i.datetimepicker('destroy');
+    // },
+    // onGenerate: function(current_time,$input){},//trigger after construct calendar and timepicker
+
+
+    // withoutCopyright:false, //true
+    // inverseButton:true, //false
+    // scrollMonth: false, //true
+    // scrollTime: false, //true
+    // scrollInput: false, //true
+    // hours12: true, //false
+    yearStart: 1950, //1950 //Start value for fast Year selector
+    // yearEnd: 2200, //2050 //End value for fast Year selector	
+    // roundTime: 'floor',	//'round'	Round time in timepicker, possible values: round, ceil, floor
+    // dayOfWeekStart: 1, //0	//Star week DatePicker. (Default Sunday - 0. Monday - 1 ...)
+    
+    // weekends: ['01.01.2014','02.01.2014','03.01.2014','04.01.2014','05.01.2014','06.01.2014'], //[]
+    // disabledDates: ['01.01.2014','02.01.2014','03.01.2014','04.01.2014','05.01.2014','06.01.2014'], formatDate:'d.m.Y',	//[]	//Disbale all dates in list
+    // allowDates: ['01.01.2014','02.01.2014','03.01.2014','04.01.2014','05.01.2014','06.01.2014'], formatDate:'d.m.Y', //[]	//Allow all dates in list
+    // allowDateRe: '\d{4}-(03-31|06-30|09-30|12-31)', format:'Y-m-d', //Use Regex to check dates
+    // disabledWeekDays:[0, 6], // [] //Disable days listed by index
+
+
+
+    // className
+    // id,
+    // style
+    // ownerDocument //document //The ownerDocument object for the datetimepicker to properly attach events and calc position (iframe support).	
+    // contentWindow //window //The contentWindow object that contains the datetimepicker to properly attach events (iframe support).	
+
+
+});
+
+
+
+
+
+
+
+//-----------------
+// Language i18n
+    // ar - Arabic
+    // az - Azerbaijanian (Azeri)
+    // bg - Bulgarian
+    // bs - Bosanski
+    // ca - Català
+    // ch - Simplified Chinese
+    // cs - Čeština
+    // da - Dansk
+    // de - German
+    // el - Ελληνικά
+    // en - English
+    // en-GB - English (British)
+    // es - Spanish
+    // et - "Eesti"
+    // eu - Euskara
+    // fa - Persian
+    // fi - Finnish (Suomi)
+    // fr - French
+    // gl - Galego
+    // he - Hebrew (עברית)
+    // hr - Hrvatski
+    // hu - Hungarian
+    // id - Indonesian
+    // it - Italian
+    // ja - Japanese
+    // ko - Korean (한국어)
+    // kr - Korean
+    // lt - Lithuanian (lietuvių)
+    // lv - Latvian (Latviešu)
+    // mk - Macedonian (Македонски)
+    // mn - Mongolian (Монгол)
+    // nl - Dutch
+    // no - Norwegian
+    // pl - Polish
+    // pt - Portuguese
+    // pt-BR - Português(Brasil)
+    // ro - Romanian
+    // ru - Russian
+    // se - Swedish
+    // sk - Slovenčina
+    // sl - Slovenščina
+    // sq - Albanian (Shqip)
+    // sr - Serbian Cyrillic (Српски)
+    // sr-YU - Serbian (Srpski)
+    // sv - Svenska
+    // th - Thai
+    // tr - Turkish
+    // uk - Ukrainian
+    // vi - Vietnamese
+    // zh - Simplified Chinese (简体中文)
+    // zh-TW - Traditional Chinese (繁體中文)
+
+
+</script>
+
+
+
+<input type="text" id="input"/>
+<style>
+    .daystyle1{background-color:red !important;}
+    .daystyle2{background-color:blue !important; color:yellow !important; font-size: 20px !important; font-weight: bold !important;}
+</style>
+<button class="create">create</button>
+<button class="inline_true">inline_true</button>
+<button class="show">show</button>
+<button class="hide">hide</button>
+<button class="setdate">setdate</button>
+<button class="getdate">getdate</button>
+<button class="reset">reset</button>
+
+<button class="customlang">customlang</button>
+<button class="customstyle">customstyle</button>
+
+<script>
+    
+    // $('#input').datetimepicker({format:'Y-m-d H:i'});
+    // $('#input').val('2021-04-07 15:30')
+    // $.datetimepicker.setDateFormatter('moment'); //https://momentjs.com/
+
+    //create / destory
+    $('button.create').click(function(){
+        if($(this).text() == 'create' ){
+            $('#input').datetimepicker({format:'Y-m-d H:i'});
+            $(this).text('destroy')
+        }else{
+            $('#input').datetimepicker('destroy');
+            $(this).text('create')
+        }
+    });
+
+    //inline true / false
+    $('button.inline_true').click(function(){
+        if($(this).text() == 'inline_true' ){
+            $('#input').datetimepicker('setOptions', {inline:true})
+            $(this).text('inline_false')
+        }else{
+            //----------bug있음
+            // let nextDom = $('#input').next();
+            // if( nextDom.hasClass('xdsoft_noselect') ) nextDom.remove();
+            // let prevDom = $('#input').next();
+            // if( prevDom.hasClass('xdsoft_noselect') ) prevDom.remove();
+            $('.xdsoft_datetimepicker.xdsoft_noselect.xdsoft_.xdsoft_inline').remove();
+            $('#input').show();
+            $(this).text('inline_true')
+        }
+    });
+
+    // show
+    $('button.show').on('click', function () {
+        $('#input').datetimepicker('show');
+    });
+
+    // hide
+    $('button.hide').on('click', function () {
+        $('#input').datetimepicker('hide');
+    });
+    // $(window).on('resize', function () {
+    //     $('#input').datetimepicker('hide');
+    // });
+
+    //setdate
+    $('button.setdate').click(function(){
+        $('#input').datetimepicker({value:'2011-12-11 12:00', format:'Y-m-d H:i'})
+    })
+    // getdate
+    $('button.getdate').on('click', function () {
+        var d = $('#input').datetimepicker('getValue');
+        alert(d.toString())
+        console.log(d, d.getFullYear());
+    });
+
+    //reset
+    $('button.reset').on('click', function () {
+        $('#input').datetimepicker('reset')
+    })
+
+    // $('#input').datetimepicker('validate')
+
+    // setOptions
+    // $('#input').datetimepicker({format: 'd.m.Y'});
+    // $('#input').datetimepicker('setOptions', {format: 'd/m/Y'});
+    // $('#input').datetimepicker({format: 'd/m/Y'});
+
+
+    //custom lang 
+    $('button.customlang').on('click', function () {
+        // $.datetimepicker.setLocale('de');
+        $('#input').datetimepicker({
+            i18n:{
+                de:{
+                    months:[
+                        '1','2','3','4',
+                        '5','6','7','8',
+                        '9','10','11','12',
+                    ],
+                    dayOfWeekShort:[
+                        "0", "1", "2", "3", 
+                        "4", "5", "6"
+                    ],
+                    dayOfWeek:[
+                        "0", "1", "2", "3", 
+                        "4", "5", "6"
+                    ]
+                }
+            },
+            timepicker:false,
+            format:'Y.m.d'
+        });
+        $('#input').datetimepicker('setOptions', {format: 'Y-m-d'});
+    })
+
+    //custom style
+    $('button.customstyle').on('click', function () {
+        $('#input').datetimepicker({
+            beforeShowDay: function(date) {
+                let dateToDisable = new Date();
+	            // dateToDisable.setDate(dateToDisable.getDate() + 2);
+                if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == 2) {
+                    return [true, "daystyle1"]; //날짜 클릭 됨, 스타일을 빨간색으로 하기 (classname is .red)
+                }
+                if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == 4) {
+                    return [true, "daystyle2"]; //날짜 클릭 안됨, 스타일을 파란색으로 하기
+                }
+                if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == 7) {
+                    return [false, ""]; //날짜 클릭 안됨, 스타일 없음
+                }
+                return [true, ""];
+            }
+        });
+    })
+
+
+
+</script>
+
+
+
+
+
+
+<p>Start: <input id="date_start" type="text" value="">End: <input id="date_end" type="text" value=""></p>
+<script>
+    $(function(){
+        $('#date_start').datetimepicker({
+            format:'Y/m/d',
+            onShow:function( ct ){
+                this.setOptions({
+                    maxDate:$('#date_end').val() ? $('#date_end').val() : false
+                })
+            },
+            timepicker:false
+        });
+        $('#date_end').datetimepicker({
+            format:'Y/m/d',
+            onShow:function( ct ){
+                this.setOptions({
+                    minDate:$('#date_start').val() ? $('#date_start').val() : false
+                })
+            },
+            timepicker:false
+        });
+    });
+</script>
+
+

@@ -1,0 +1,168 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" /> -->
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery-simple-datetimepicker@1.12.0/jquery.simple-dtpicker.js"></script> err-->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-simple-datetimepicker@1.12.0/jquery.simple-dtpicker.css" /> -->
+
+<script src="jquery.simple-dtpicker.js"></script>
+<link rel="stylesheet" href="jquery-simple-datetimepicker@1.12.0.css" />
+<!-- <link rel="stylesheet" href="jquery.simple-dtpicker.css" /> -->
+
+<script src="date.js"></script>
+
+
+
+<input type="text" name="date">
+<script type="text/javascript">
+	$(function(){
+		// $('*[name=date]').appendDtpicker();
+		$('*[name=date]').appendDtpicker({
+			// "inline": true, //div로 고정시켜 보여줌
+			// "timelistScroll": false, //???
+			// "calendarMouseScroll": false //날짜 스크롤해도 전달/다음달로 변화되지 않기
+
+			// "current": "2012-3-4 12:30" //기본값
+			// "dateFormat": "DD.MM.YY H:mmTT"   //시간 형식
+
+
+			// "minuteInterval": 15, 
+			// "calendarMouseScroll": false, 
+			// "futureOnly": true,  //오늘 지금 시간후로부터 선택가능
+			// "autodateOnStart": false,
+
+
+
+			"locale": "ko", //언어
+			// "minuteInterval": 15  //시간간격 (기본30분) min: 5, max: 30. (default: 30 minute. it means interval of each 30 minute.)
+			// "firstDayOfWeek": 1  //월요일을 한주의 첫 시작으로 함 min: 0 (sunday), max: 6 (satday), default: 0 (sunday).
+			// "closeOnSelected": true, //시간을 클릭시 감춤 (년도는 클릭해도 안꺼짐)
+			// "animation": false,
+			// "todayButton": false  //오늘 버튼 감춤
+			// "dateOnly": true //날짜만 사용 //가끔 시간이 나오는 버그??
+			// "futureOnly": true //날짜 먼저 선택후 시간을 클릭할수 있음
+			// "amPmInTimeList": true, //(??? cdn에러)
+			// "autodateOnStart": false
+			// "closeButton": false
+			// minDate: '2021-02-03 11:30', //날짜 부터 선택가능
+			// maxDate: '2021-05-01 22:00' //날짜 까지 선택가능
+			// "allowWdays": [1, 2, 3, 4, 5] //선택할수 있는 요일 (0: Sun, 1: Mon, 2: Tue, 3: Wed, 4: Thr, 5: Fri, 6: Sat)
+
+			//이벤트
+			// "onInit": function(handler){//생성시 generate
+			// 	handler.show();
+			// },
+			// "onShow": function(handler){ //보일시
+			// 	window.alert('Picker is shown!');
+			// },
+			// "onHide": function(handler){ //감춤시
+			// 	console.log(targetDate, nextDate([0,0,0,0,0,0],targetDate,'Y-m-d H:i:s'))//"2021-01-05 18:43:35:167"
+			// 	// window.alert('Picker is hidden!');
+			// 	// handler.getInput() // Get a input-field object (jQuery element).
+			// 	// handler.getPicker() // Get a picker object (jQuery element).
+			// 	// handler.getDate() // Get a selected date from a picker.
+			// 	// handler.setDate(date) // Set a specific date to a picker.
+			// 	// handler.hide() // Hide a picker.
+			// 	// handler.show() // Show a picker.
+			// 	// handler.isShow() // Get the display state of a picker.
+			// 	// handler.destroy();
+			// },
+			"onSelect": function(handler, targetDate){ //날짜 선택시 (시간선택은 실행 안됨)(??? cdn에러)
+				// window.alert(handler.getDate());
+				// console.log(handler, targetDate);
+				console.log( handler.getPicker().handleDtpicker('getDate'))
+				// console.log(this, nextDate([0,0,0,0,0,0],targetDate,'Y-m-d H:i:s:x'))//"2021-01-05 18:43:35:167"
+			}
+		});
+
+
+		// console.log(targetDate, nextDate([0,0,0,0,0,0],targetDate,'Y-m-d H:i:s:x'))//"2021-01-05 18:43:35:167"
+
+
+	});
+</script>
+
+<div>
+	dateFormat:
+	<ul style="font-size: 0.8em;">
+		<li>YYYY: Year, 4 digit</li>
+		<li>YY: Year, 2 digit</li>
+		<li>MM: Month, 01-12</li>
+		<li>M: Month, 1-12</li>
+		<li>DD: Day, 01-31</li>
+		<li>D: Day, 1-31</li>
+		<li>HH: Hour using 12-hour clock 01-12</li>
+		<li>H: Hour using 12-hour clock 1-12</li>
+		<li>hh: Hour using 24-hour clock 00-23</li>
+		<li>h: Hour using 24-hour clock 0-23</li>
+		<li>mm: Minute, 00-59</li>
+		<li>m: Minute, 0-59</li>
+		<li>tt: am/pm</li>
+		<li>TT: AM/PM</li>
+	</ul>
+
+	locale:
+	<ul style="font-size: 0.8em;">
+		<li>"en" : English (default)</li>
+		<li>"et" : Estonian</li>
+		<li>"br" : Brazilauricio</li>
+		<li>"cn" : Chinese</li>
+		<li>"cz" : Czech</li>
+		<li>"da" : Danish</li>
+		<li>"de" : German</li>
+		<li>"es" : Spanish</li>
+		<li>"fr" : French</li>
+		<li>"gr" : Greek</li>
+		<li>"hu" : Hungarian</li>
+		<li>"id" : Bahasa Indonesia</li>
+		<li>"it" : Italian</li>
+		<li>"ja" : Japanese</li>
+		<li>"ko" : Korean</li>
+		<li>"nl" : Dutch (Naderlands)</li>
+		<li>"no" : Norwegian</li>
+		<li>"pt" : Portuguese</li>
+		<li>"pl" : Polish</li>
+		<li>"ro" : Romanian</li>
+		<li>"ru" : Russian</li>
+		<li>"sv" : Swedish</li>
+		<li>"tr" : Turkish</li>
+		<li>"ua" : Ukrainian</li>
+	</ul>
+</div>
+
+
+<input type="text" id="date_manual" value="">
+<input type="button" id="btn_manual_generate" value="Generate">
+<input type="button" id="btn_manual_show" value="Show">
+<input type="button" id="btn_manual_hide" value="Hide">
+<input type="button" id="btn_manual_get_date" value="getDate">
+<input type="button" id="btn_manual_set_date" value="setDate">
+<input type="button" id="btn_manual_destroy" value="Destroy">
+<script type="text/javascript">
+	$(function(){
+		$('#btn_manual_generate').click(function(){
+			$('#date_manual').appendDtpicker({
+				"inline": true,
+				"closeButton": true
+			});
+		});
+		$('#btn_manual_show').click(function(){
+			$('#date_manual').handleDtpicker('show');
+		});
+		$('#btn_manual_hide').click(function(){
+			$('#date_manual').handleDtpicker('hide');
+		});
+		$('#btn_manual_get_date').click(function(){
+			let date = $('#date_manual').handleDtpicker('getDate');
+			window.alert(date.toString());
+		});
+		$('#btn_manual_set_date').click(function(){
+			$('#date_manual').handleDtpicker('setDate', new Date(2014, 04, 25, 0, 0, 0));
+		});
+		$('#btn_manual_destroy').click(function(){
+			$('#date_manual').handleDtpicker('destroy');
+		});
+	});
+</script>
